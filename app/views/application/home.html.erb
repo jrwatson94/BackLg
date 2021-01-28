@@ -1,0 +1,43 @@
+<div class="text-center">
+<%if flash[:account_delete]%>
+    <%=flash[:account_delete]%>
+<%end%>
+  <h1>B@ckLg is a Video Game Cataloging App</h1>
+</div>
+<br>
+<div class="text-center">
+  <h3>
+    With access to over 400,000 games,
+    B@ckLg is your one stop shop <br>for all your game cataloging needs!
+  </h3>
+</div>
+<br>
+  <div class="container my-4">
+    <div class="row">
+        <% Game.all.sample(3).each do |game|%>
+            <div class="col-md-4" style="text-align:center;">
+                <div class="card shadow">
+                    <img src= <%= game.image_url %> class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="text-center" class="card-text"><%= link_to "#{game.name}", game_path(game) %></h5>
+                        <br>
+                        <div class="card-text"><strong>Rating:</strong> <%= game.rating %></div>
+                        <div class="card-text"><strong>Genre:</strong> <%= game.genre %></div>
+                        <div class="card-text"><strong>Number of Ratings:</strong> <%= game.rating_count %></div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        <% end%>
+    </div>
+  </div>
+<br><br>
+
+<div class="text-center">
+  <% if @current_user != nil %>
+    <%= button_to "View More Games", games_path, method: :get%>
+  <% else %>
+    <h3>What are you waiting for?</h3>
+    <%= button_to "Signup", new_user_path, method: :get %>
+  <% end %>
+</div>

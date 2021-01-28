@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BacklgMod2project</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap" rel="stylesheet">
+   
+  </head>
+ 
+  <body >
+  <div class="banner">
+      <%= image_tag "b@cklg_banner.png", class: "banner-img" %>
+    </div>
+
+
+
+  <nav id="home_page"class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <% if @current_user %>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="<%= root_path %>">Home</a>
+        <a href="<%= edit_user_path(@current_user) %>">Edit Profile</a>
+        <a href= "<%= new_system_user_path %>">Edit Systems</a>
+        <a href="<%= games_path %>">Add Game</a>
+      </div>
+
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+      <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+      </script>
+      <br>
+    <% end %>
+      <a id="logo"class="navbar-brand" href=<%= root_path %>>
+        <%= image_tag  "game-controller.png" %>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          <% if @current_user %>
+            <li class="nav-item active">
+              <a class="nav-link" href="<%=  %>">Welcome <%= @current_user.name.split.map(&:capitalize).join(' ') %>! <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="<%= games_path %>">All Games<span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href=<%=user_path(@current_user)%> id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href=<%= user_path(@current_user)%>>See your profile</a>
+                <a class="dropdown-item" href=<%= edit_user_path(@current_user.id) %>>Edit profile</a>
+                <a class="dropdown-item" href=<%= games_path %>>Add a Game</a>
+                <a class="dropdown-item" href=<%= new_system_user_path %>>Add a System</a>
+              </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" rel="nofollow" data-method="get" href="/logout">Logout<span class="sr-only">(current)</span></a>
+            </li>
+          <% else %>
+            <li class="nav-item active">
+                <a class="nav-link" href=<%= login_path %>>Already a member? Log In</a>
+              </li>
+            <li class="nav-item active">
+              <a class="nav-link" href=<%= new_user_path %>>Sign Up!</a>
+            </li>
+          <% end%>
+          </ul>
+        </div>
+  </nav> 
+
+    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>

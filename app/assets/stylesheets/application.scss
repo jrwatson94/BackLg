@@ -1,0 +1,157 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap";
+
+  /* Styling for app body*/
+  /* body {
+    font-family: 'Nunito', sans-serif;
+    
+  } */
+
+  /* Styling for app form text field*/
+.card-body {
+  border-bottom-left-radius: calc(0.25rem - 1px);
+  border-bottom-right-radius: calc(0.25rem - 1px);
+}
+  #logo {
+    height: 70px;
+    width: 70px;
+  }
+
+  .page_title {
+    margin: 3rem;
+  }
+
+  body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif
+  }
+
+  
+  input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  /* Styling for app form text area*/
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+  }
+
+  #delete-button {
+    background-color: red;
+    color: white;
+  }
+
+  /* Styling for all buttons on hover*/
+  input[type=submit]:hover {
+    background-color: #5345a0;
+  }
+
+
+  /* Styling for all buttons */
+  input[type=submit] {
+    background-color: #724caf;
+    color: white;
+  }
+
+
+ .form{
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #ddd4dd;
+    padding: 20px;
+    box-align: center;
+    text-align: center;
+  }
+
+
+ .banner-img {
+    width: 100%;
+    height: 200px;
+   }
+  
+   .banner {
+     width: 100%;
+     
+     margin: 0px auto;
+  
+   }
+  
+   .nav {
+    background-color: #6e2a6b;
+    height: 40px;
+    width: 90%;
+    margin: 0px auto;
+  }
+
+  #home_page {
+    background-color: #724caf
+  }
+  
+   .nav li {
+     /* border: 1px solid black; */
+     display: inline-block;
+     line-height: 40px;
+     padding: 0px 15px;
+     margin: 0px;
+  
+   }
+  
+   .nav li:hover {
+     background-color: rgb(194, 34, 159);
+     transition: 0.7s;
+   }
+  
+   .nav li a {
+    text-decoration: none;
+    color: #f5f6f8;
+    font-weight: 800;
+  }
+  
+  
+  .right {
+    float: right;
+    color: #f5f6f8;
+    font-weight: 800;
+  }
+
+  h1, h2, h4, h5 {
+    text-align: center;
+    padding-top: 0.5in;
+  }
+
+  .navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+   
+    font-size: large;
+  }
+
